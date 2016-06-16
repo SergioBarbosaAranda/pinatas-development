@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="medium-12 columns text-left">
+    <h4>List Of Sub-Types Of Articles</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="30%">Name</th>
+          <th width="30%">Description</th>
+          <th width="30%">Type of article</th>
+          <th width="10%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sub_types.each do |sub_type| %>
+          <tr>
+            <td><%= sub_type.name %></td>
+            <td><%= sub_type.description %></td>
+            <td><%= sub_type.article_type_name %></td>
+            <td>
+              <%= link_to 'Show', sub_type %> <br />
+              <%= link_to 'Edit', edit_sub_type_path(sub_type) %> <br />
+              <%= link_to 'Destroy', sub_type, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns text-right">
+    <%= link_to 'New Sub-Type Of Article', new_sub_type_path, :class => "button round tiny" %>
+  </div>
+</div>

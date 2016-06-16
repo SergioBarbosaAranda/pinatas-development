@@ -1,0 +1,60 @@
+<script type="text/javascript">
+  function update_subtypes(obj){
+    $.ajax({
+      method: 'GET',
+      url: '/get_subtypes/'+obj.value,
+      context: document.body
+    })
+    .fail(function(a) {
+      alert(a);
+    })
+    .done(function(data) {
+      var x = document.getElementById("article_sub_type_id");
+      for(i = 0; i <= x.length; i++){
+        x.remove(0);
+      }
+
+      $.each(data, function (i, object) {
+        $('#article_sub_type_id').append('<option value="'+object['id']+'">'+object['name']+'</option>');
+      });
+    });
+  }
+</script>
+
+<%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of_article_id %><br>
+    <%= f.select :type_of_article_id, options_from_collection_for_select(@types, "id", "name", f.object.type_of_article_id),{}, :onChange=>"javascript: update_subtypes(this);" %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_type_id %><br>
+    <%= f.select :sub_type_id, options_from_collection_for_select(@subtypes, "id", "name", f.object.sub_type_id) %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

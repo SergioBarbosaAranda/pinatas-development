@@ -1,0 +1,43 @@
+<%= form_for(@type_of_article) do |f| %>
+  <div class="row">
+    <% if @type_of_article.errors.any? %>
+      <div class="medium-12 columns">
+        <div class="alert-box round alert">
+          <% @type_of_article.errors.full_messages.each do |message| %>
+            <%= message %>.
+          <% end %>
+          <a id="close_message"class="close" href="#">×</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.label :name %>
+    </div>
+    <div class="medium-10 columns">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+    <div class="row">
+    <div class="medium-2 columns">
+      <%= f.label :description %>
+    </div>
+    <div class="medium-10 columns">
+      <%= f.text_area :description %>
+    </div>
+  </div>
+    <div class="row">
+    <div class="medium-2 columns">
+      <%= f.label :image %>
+    </div>
+    <div class="medium-10 columns">
+      <%= f.text_field :image %>
+    </div>
+  </div>
+ <div class="row">
+  <div class="medium-12 columns text-center">
+    <%= f.submit nil, :class => "button round tiny" %> <%= link_to 'Back', type_of_articles_path, :class => "button round alert tiny" %>
+  </div>
+ </div>
+<% end %>

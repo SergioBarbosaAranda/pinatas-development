@@ -1,0 +1,27 @@
+<p>
+  <strong>Name:</strong>
+  <%= @article.name %>
+</p>
+
+<p>
+  <strong>Type Of Article:</strong>
+  <%= @article.article_type_name %>
+</p>
+
+<p>
+  <strong>Sub Type Of Article:</strong>
+  <%= @article.article_subtype_name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @article.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @article.description %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="medium-12 columns text-left">
+    <h4>List Of Type Of Articles</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="25%">Name</th>
+          <th width="25%">Description</th>
+          <th width="25%">
+            <span class="show-for-small-only">Sub-Types</span>
+            <span class="show-for-medium-up">Sub-Types Of Article</span>
+          </th>
+          <th width="25%" class="show-for-medium-up">Image</th>
+          <th width="10%" class="show-for-medium-up"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @type_of_articles.each do |type_of_article| %>
+          <tr>
+            <td><%= type_of_article.name %></td>
+            <td><%= type_of_article.description %></td>
+            <td>
+              <ul>
+              <% type_of_article.sub_types.each do |sub_type| %>
+                <li><%= sub_type.name %></li>
+              <% end %>
+              </ul>
+            </td>
+            <td class="show-for-medium-up"><%= image_tag(type_of_article.image, :width => '100%', :height => 'auto') %></td>
+            <td>
+              <%= link_to 'Show', type_of_article %><br />
+              <%= link_to 'Edit', edit_type_of_article_path(type_of_article) %><br />
+              <%= link_to 'Delete', type_of_article, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns text-right">
+    <%= link_to 'New Type Of Article', new_type_of_article_path, :class => "button round tiny" %>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Piñatas Chatas" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="medium-12 columns">
+        <div class="row">
+          <div class="medium-12 colums margin_bottom_small">
+            <nav class="top-bar" data-topbar role="navigation">
+              <ul class="title-area">
+                <li class="name">
+                  <% if admin_signed_in? %>
+                    <h1>
+                      <%= link_to "Logout", destroy_admin_session_path, :method => :delete %>
+                    </h1>
+                  <% else %>
+                    <h1>
+                      <%= link_to "Login", new_admin_session_path %>
+                    </h1>
+                  <% end %>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+              </ul>
+
+              <section class="top-bar-section">
+                <ul class="right">
+                  <li><a href="/articles">Articles</a></li>
+                  <li><a href="/type_of_articles">Types of Articles</a></li>
+                  <li><a href="/sub_types">Sub-Types of Articles</a></li>
+                </ul>
+              </section>
+            </nav>
+          </div>
+      </div>
+      <% if notice.present? %>
+        <div class="row">
+            <div class="medium-12 columns">
+              <div class="alert-box round <%= (notice.include? 'error') ? 'alert' : 'success' %>">
+                <%= notice %>
+                <a class="close" href="">×</a>
+              </div>
+            </div>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="medium-12 columns">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

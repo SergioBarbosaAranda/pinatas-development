@@ -1,0 +1,43 @@
+<%= form_for(@sub_type) do |f| %>
+  <div class="row">
+    <% if @sub_type.errors.any? %>
+      <div class="medium-12 columns">
+        <div class="alert-box round alert">
+          <% @sub_type.errors.full_messages.each do |message| %>
+            <%= message %>.
+          <% end %>
+          <a id="close_message"class="close" href="#">×</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.label :name %>
+    </div>
+    <div class="medium-10 columns">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.label :description %>
+    </div>
+    <div class="medium-10 columns">
+      <%= f.text_area :description %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.label :type_of_article_id %>
+    </div>
+    <div class="medium-10 columns">
+      <%= f.select :type_of_article_id, options_from_collection_for_select(@types, "id", "name", f.object.type_of_article_id) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-12 columns text-center">
+      <%= f.submit nil, :class => "button round tiny"  %> <%= link_to 'Back', sub_types_path, :class => "button round alert tiny" %>
+    </div>
+  </div>
+<% end %>

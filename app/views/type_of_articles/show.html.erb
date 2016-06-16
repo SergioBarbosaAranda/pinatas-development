@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="medium-2 columns">
+		<strong>Name:</strong>
+	</div>
+	<div class="medium-10 columns">
+		<%= @type_of_article.name %>
+	</div>
+</div>
+<div class="row">
+	<div class="medium-2 columns">
+		<strong>Description:</strong>
+	</div>
+	<div class="medium-10 columns">
+		<%= @type_of_article.description %>
+	</div>
+</div>
+<div class="row">
+	<div class="medium-2 columns">
+		<strong>Image:</strong>
+	</div>
+	<div class="medium-10 columns">
+		<%= @type_of_article.image %>
+	</div>
+</div>
+<div class="row">
+	<div class="medium-12 columns text-center">
+		<%= link_to 'Edit', edit_type_of_article_path(@type_of_article), :class => "button round tiny" %> <%= link_to 'Back', type_of_articles_path, :class => "button round alert tiny" %>
+	</div>
+</div>

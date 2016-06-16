@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="medium-12 columns">
+    <h4>List Of Articles</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="10%">Name</th>
+          <th width="10%">Type</th>
+          <th width="10%">Sub-Type</th>
+          <th width="10%">Price</th>
+          <th width="20%" class="show-for-medium-up">Image</th>
+          <th width="30%" class="show-for-medium-up">Description</th>
+          <th width="10%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @articles.each do |article| %>
+          <tr>
+            <td><%= article.name %></td>
+            <td><%= article.article_type_name %></td>
+            <td><%= article.article_subtype_name %></td>
+            <td><%= article.price %></td>
+            <td class="show-for-medium-up"><%= image_tag('http://foundation.zurb.com/docs/assets/img/examples/satelite.jpg', :width => '100%', :height => 'auto')%></td>
+            <td class="show-for-medium-up"><%= article.description %></td>
+            <td>
+              <%= link_to 'Show', article %><br />
+              <%= link_to 'Edit', edit_article_path(article) %><br />
+              <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns text-right">
+    <%= link_to 'Add Article', new_article_path, :class => "button round tiny" %>
+  </div>
+</div>
