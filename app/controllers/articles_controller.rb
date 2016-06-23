@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update]
-  before_action :set_subtypes_and_type, only: [:new, :show, :edit, :update]
+  before_action :set_subtypes_and_type
   before_action :authenticate_admin!
 
   # GET /articles
@@ -75,7 +75,7 @@ class ArticlesController < ApplicationController
       if params[:id].present?
         id = @article.type_of_article_id
       else
-        id = TypeOfArticle.first.id
+        id = TypeOfArticle.all.size > 0 ? TypeOfArticle.first.id : nil
       end
 
       @subtypes = SubType.where("type_of_article_id = ?", id)
