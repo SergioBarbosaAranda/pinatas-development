@@ -1,0 +1,20 @@
+<section class="top-bar-section">
+  <ul class="right top-bar-section-ul">
+    <% if admin_signed_in? %>
+      <li class="main-menu-round-border-left show-for-medium-up"><a href="/articles"><span>Articles</span></a></li>
+      <li class="show-for-small-only"><a href="/articles"><span>Articles</span></a></li>
+      <li><a href="/type_of_articles"><span>Types of Articles</span></a></li>
+      <li><a href="/sub_types"><span>Sub-Types of Articles</span></a></li>
+      <li class="main-menu-round-border-light show-for-medium-up"><%= link_to "Logout", destroy_admin_session_path, :method => :delete %></li>
+      <li class="show-for-small-only"><%= link_to "Logout", destroy_admin_session_path, :method => :delete %></li>
+    <% else %>
+      <li class="main-menu-round-border-left show-for-medium-up"><a href="/"><span class="active-page">INICIO</span></a></li>
+      <li class="show-for-small-only"><a href="/"><span class="active-page">INICIO</span></a></li>
+      <li><a href="/about_us"><span>CONOCENOS</span></a></li>
+      <li><a href="#"><span>GALERIA</span></a></li>
+      <li class="main-menu-round-border-light show-for-medium-up"><a href="#"><span>CONTACTANOS</span></a></li>
+      <li class="show-for-small-only"><a href="#"><span>CONTACTANOS</span></a></li>
+      <!-- <li>< %= link_to "Login", new_admin_session_path %></li> -->
+    <% end %>
+  </ul>
+</section>

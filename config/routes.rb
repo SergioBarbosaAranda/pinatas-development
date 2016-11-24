@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'get_subtypes/:id' => 'application#get_subtypes'
 
+  get '/about_us' => 'home#about_us'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -13,51 +13,41 @@
   </head>
 
   <body>
-    <div class="row">
-      <div class="medium-12 columns">
-        <div class="row">
-          <div class="medium-12 colums margin_bottom_small">
-            <nav class="top-bar" data-topbar role="navigation">
-              <ul class="title-area">
-                <li class="name">
-                  <% if admin_signed_in? %>
-                    <h1>
-                      <%= link_to "Logout", destroy_admin_session_path, :method => :delete %>
-                    </h1>
-                  <% else %>
-                    <h1>
-                      <%= link_to "Login", new_admin_session_path %>
-                    </h1>
-                  <% end %>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-              </ul>
-
-              <section class="top-bar-section">
-                <ul class="right">
-                  <li><a href="/articles">Articles</a></li>
-                  <li><a href="/type_of_articles">Types of Articles</a></li>
-                  <li><a href="/sub_types">Sub-Types of Articles</a></li>
-                </ul>
-              </section>
-            </nav>
-          </div>
-      </div>
-      <% if notice.present? %>
-        <div class="row">
-            <div class="medium-12 columns">
-              <div class="alert-box round <%= (notice.include? 'error') ? 'alert' : 'success' %>">
-                <%= notice %>
-                <a class="close" href="">×</a>
-              </div>
+    <div class="background-header-bottom show-for-medium-up">
+      <div class="row <%= is_home_index_page %>">
+        <div class="medium-12">
+          <div class="row no-margin">
+            <div class="medium-6 columns">
+              <%= image_tag("logo.png", :class => "relative-position-logo") %>
             </div>
+            <div class="medium-6 columns text-right">
+              <%= image_tag("fiesta_vector.png") %>
+            </div>
+          </div>
+          <div class="row no-margin main-menu-position-fix">
+              <div class="medium-12 columns show-for-medium-up">
+                <nav class="top-bar" data-topbar role="navigation">
+                  <%= render "layouts/main_menu" %>
+                </nav>
+              </div>
+          </div>
         </div>
-      <% end %>
-      <div class="row">
-        <div class="medium-12 columns">
-          <%= yield %>
-        </div>
+      </div> 
+    </div>
+    <div class="row show-for-small-only">
+      <div class="medium-12 columns no-padding-left-right">
+        <nav class="top-bar" data-topbar role="navigation">
+          <ul class="title-area">
+            <li class="name"></li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+          </ul>
+          <%= render "layouts/main_menu" %>
+        </nav>
       </div>
     </div>
+      
+    <%= yield %>
+
+    <%= render "layouts/footer" %>
   </body>
 </html>

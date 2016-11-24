@@ -5,3 +5,68 @@
 .alert-box{
 	padding: 0.5rem 1.5rem 0.5rem 0.875rem !important;
 }
+
+.background-header-bottom{
+	background-image: url("border_header.png");
+}
+
+.relative-position-logo{
+	position: absolute;
+    left: 0.9375rem;
+    top: 0px;
+    z-index: 1;
+}
+
+.title-area{
+	background-color: #b897c0!important;
+}
+
+.main-menu-round-border-left, .main-menu-round-border-left:hover{
+	border-radius: 0px 0px 0px 10px !important;
+}
+
+.main-menu-round-border-light, .main-menu-round-border-light:hover{
+	border-radius: 0px 0px 10px 0px !important;
+}
+
+.top-bar-section-ul li:hover{
+	background-color: #b773aa;
+}
+
+.no-padding-left-right{
+	padding-left: 0px!important;
+	padding-right: 0px!important;
+}
+
+.top-bar-section ul li a span{
+	border-bottom: 2px;
+}
+
+.active-page{
+	border-bottom: 2px solid #aee3e8 !important;
+}
+
+.whole-column{
+	max-width: 100%!important;
+}
+
+.whole-column, .columns{
+	padding-left: 0px!important;
+	padding-right: 0px!important;
+}
+
+.no-margin{
+	margin: 0px!important;
+}
+
+.main-menu-margin-bottom{
+	margin-bottom:2.8125rem!important;
+}
+
+.main-menu-position-fix{
+	position: absolute;
+	top:132px;
+	max-width: 62.5rem!important;
+	width: 100%!important;
+	z-index: 1;
+}
