@@ -98,3 +98,8 @@
 .padding-top-category{
 	padding-top: 1.25rem;
 }
+
+/* History section */
+.padding-top-bottom-history{
+	padding: 1.25rem 0 1.25rem 0;
+}
